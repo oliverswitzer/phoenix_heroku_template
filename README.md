@@ -13,7 +13,7 @@ This boilerplate app uses:
 
 # 🛠  Setup & Customzie
 
-To quickly make this boilerplate yours, I've provided easy-to-find placeholders that make it a breeze to rename this app to your desired app.
+To quickly make this boilerplate yours, I've provided easy-to-find placeholders that make it a breeze to rename this app.
 
 You will need to globally replace the `RenameMe` / `rename_me` placeholder in the app with your desired app name
 
