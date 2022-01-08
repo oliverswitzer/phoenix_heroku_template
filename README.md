@@ -1,8 +1,8 @@
 # Phoenix Template App 
 
-### ♨️  This is a boilerplate template for Phoenix apps that can be deployed to Heroku
+### ♨️  This is a boilerplate template that can be used to deploy a LiveView Phoenix app to Heroku within seconds.
 
-This boilerplate app uses:
+This boilerplate template uses:
 
 * Phoenix 1.6.3
 * elixir 1.12.3-otp-24
@@ -11,52 +11,29 @@ This boilerplate app uses:
 * esbuild
 * Ecto / Postgres 
 
-# 🛠  Setup & Customzie
+# 🛠  Customzie + Deploy
 
-To quickly make this boilerplate yours, I've provided a setup script that makes
-it a breeze to rename this app to your desired named.
+Just clone the repo, run `./setup.sh` and follow the prompts to rename this template app and automatically deploy to Heroku!
 
-Just clone the repo, run `./setup.sh` and follow the prompts for renaming and automatically deploying to Heroku!
+If you'd prefer to do the rename and Heroku deploy manually, feel free to follow along
+[here](#manual-rename-and-deploy)
 
-If you'd prefer to do the renames manually, feel free to follow along
-[here](#manual-app-rename)
+# 🔎 Other considerations
 
-# 🐿  Deployment
+### E-Z CI / CD
 
-Minor changes have been made to `config/runtime.exs` to allow deployments to Heroku.
-All you need to do is install the necessary buildpacks and set appropriate environment variables.
-
-1. Create heroku app
-
-`heroku create <your-app-name>`
-
-2. Install buildpacks
-
-`heroku buildpacks:add hashnuke/elixir`
-
-By default, Phoenix uses esbuild and manages all assets for you. However, if you are using node and npm, you will need to install the Phoenix Static buildpack to handle them:
-
-`heroku buildpacks:add https://github.com/gjaldon/heroku-buildpack-phoenix-static.git`
-
-3. Set these env vars:
-
-```
-heroku config:set DATABASE_URL=<database url generated from heroku>
-heroku config:set POOL_SIZE=10
-heroku config:set SECRET_KEY_BASE=$(mix phx.gen.secret)
-heroku config:set PHX_HOST=<your heroku domain>
-```
-
-4. (Optional) Enable Github Actions for Continuous Deployment
+You can optionally choose to enable Github Actions for Continuous Deployment
 
 This repository has already defined a very simple Github action workflow that
 deploys commits to main to Heroku in `.github/workflows/main.yml`
 
-To enable this, simply edit `.github/workflows/main.yml`, add your email address, and change `replace_me` to your apps name. Finally, set `HEROKU_API_KEY` in your Github repository secrets.
+To enable this, simply edit `.github/workflows/main.yml`, add your email address, and change `replace_me` to your apps name. Finally, set `HEROKU_API_KEY` in your Github repository secrets. If you don't wish to use it, simply remove the file.
 
-# 🔎 Other considerations
+### NO DB
 
 If you'd prefer not to use a database, it is relatively easy to disable Ecto; just comment out `RenameMe.Repo,` in `lib/rename_me/application.ex` so it doesn't yell at you when starting up the app.
+
+### Keep Your Heroku App Alive
 
 If you hate the long spin up time that Heroku has for its dynos check out this
 cool tool to keep your Heroku app alive called [Kaffeine](https://kaffeine.herokuapp.com/). It will allow your dyno's to sleep just enough to not bump into your monthly dyno time allowance for the Heroku free tier.
@@ -71,7 +48,9 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-# Manual App Rename
+# Manual Rename and Deploy
+
+### Rename
 
 You will need to globally replace the `RenameMe` / `rename_me` placeholder in the app with your desired app name
 
@@ -102,4 +81,31 @@ editor of your choice or you can use the `find` command with `sed`:
 3. Run the app!
 
 ` mix deps.get && mix phx.server`
+
+### 🐿 Manual Deployment
+
+If you didn't 
+Minor changes have been made to `config/runtime.exs` to allow deployments to Heroku.
+All you need to do is install the necessary buildpacks and set appropriate environment variables.
+
+1. Create heroku app
+
+`heroku create <your-app-name>`
+
+2. Install buildpacks
+
+`heroku buildpacks:add hashnuke/elixir`
+
+By default, Phoenix uses esbuild and manages all assets for you. However, if you are using node and npm, you will need to install the Phoenix Static buildpack to handle them:
+
+`heroku buildpacks:add https://github.com/gjaldon/heroku-buildpack-phoenix-static.git`
+
+3. Set these env vars:
+
+```
+heroku config:set DATABASE_URL=<database url generated from heroku>
+heroku config:set POOL_SIZE=10
+heroku config:set SECRET_KEY_BASE=$(mix phx.gen.secret)
+heroku config:set PHX_HOST=<your heroku domain>
+```
 
