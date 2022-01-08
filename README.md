@@ -11,9 +11,9 @@ This boilerplate template uses:
 * esbuild
 * Ecto / Postgres 
 
-# 🛠  Customzie + Deploy
+# 🛠  Customize + Deploy
 
-Just clone the repo, run `./setup.sh` and follow the prompts to rename this template app and automatically deploy to Heroku!
+Just clone the repo, run `./setup.sh` and follow the prompts to rename this template app and automatically deploy to Heroku! (This approach was somewhat inspired by [AlgoVPN](https://github.com/trailofbits/algo)'s simple setup wizard script)
 
 If you'd prefer to do the rename and Heroku deploy manually, feel free to follow along
 [here](#manual-rename-and-deploy)
@@ -37,6 +37,10 @@ If you'd prefer not to use a database, it is relatively easy to disable Ecto; ju
 
 If you hate the long spin up time that Heroku has for its dynos check out this
 cool tool to keep your Heroku app alive called [Kaffeine](https://kaffeine.herokuapp.com/). It will allow your dyno's to sleep just enough to not bump into your monthly dyno time allowance for the Heroku free tier.
+
+### Consider leaving the `setup.sh` script around
+
+Even after deploying your initial app from this template and working on it, you may want to leave the setup script around. If you ever come back to the project that you end up building with this to borrow patterns or entire swathes of code, you'd just need to fork, clone and run the setup script again with the name for you new app. It's like a "fork" that actually only takes a few minutes to have deployed. 
 
 # Local Development
 
