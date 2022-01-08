@@ -1,9 +1,9 @@
-defmodule ScrapePI.MixProject do
+defmodule RenameMe.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :scrape_p_i,
+      app: :rename_me,
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule ScrapePI.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ScrapePI.Application, []},
+      mod: {RenameMe.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

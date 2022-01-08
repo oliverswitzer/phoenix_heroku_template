@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(ScrapePI.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(RenameMe.Repo, :manual)

@@ -7,14 +7,14 @@
 # General application configuration
 import Config
 
-config :scrape_p_i,
-  ecto_repos: [ScrapePI.Repo]
+config :rename_me,
+  ecto_repos: [RenameMe.Repo]
 
 # Configures the endpoint
-config :scrape_p_i, ScrapePIWeb.Endpoint,
+config :rename_me, RenameMeWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: ScrapePIWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: ScrapePI.PubSub,
+  render_errors: [view: RenameMeWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: RenameMe.PubSub,
   live_view: [signing_salt: "mqvxIqqV"]
 
 # Configures the mailer
@@ -24,7 +24,7 @@ config :scrape_p_i, ScrapePIWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :scrape_p_i, ScrapePI.Mailer, adapter: Swoosh.Adapters.Local
+config :rename_me, RenameMe.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

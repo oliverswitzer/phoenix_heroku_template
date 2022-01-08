@@ -5,8 +5,16 @@ This is a template for Phoenix apps that can be deployed to Heroku
 First, replace all instances of `RenameMe` in the app with your app name. I use
 this [Vim tool](https://github.com/brooth/far.vim) to do this.
 
-`:Far RenameMe YourElixirModuleName **/*.ex`
+`:Far RenameMe YourElixirModuleName **/*`
 `:Fardo`
+`:Far rename_me your_elixir_module_name **/*`
+`:Fardo`
+
+To rename all files, I use a tool called `rename` and `find`
+
+`$ brew install rename`
+
+`$ find . -exec rename 's|rename_me|your_elixir_module_name|' {} +`
 
 # Deployment
 
