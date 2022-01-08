@@ -13,7 +13,7 @@ This boilerplate app uses:
 
 ### 🛠  Setup & Customzie
 
-1. Clone this repo, or click "Use Template" to add to your github repositories
+1. Clone this repo, or click "Use Template" in Github to add to your github repositories
 
 2. Globally replace an easy-to-find placeholder in the app with your desired app name
 
@@ -21,19 +21,24 @@ Replace all instances of `RenameMe` in the app with your app name. I use
 this [Vim tool](https://github.com/brooth/far.vim) to do this.
 
 `:Far RenameMe YourElixirModuleName **/*`
+
 `:Fardo`
+
 `:Far rename_me your_elixir_module_name **/*`
+
 `:Fardo`
 
 If you don't use Vim or prefer not to to use that plugin, you can either use an
 editor of your choice or you can use the `find` command with `sed`:
 
 `find . -type f -name '**/*' -exec sed -i '' s/RenameMe/YourElixirModuleName/g {} +`
+
 `find . -type f -name '**/*' -exec sed -i '' s/rename_me/your_elixir_module_name/g {} +`
 
 To rename all files, I use a tool called `rename` and `find`
 
 `$ brew install rename`
+
 `$ find . -exec rename 's|rename_me|your_elixir_module_name|' {} +`
 
 3. Run the app!
