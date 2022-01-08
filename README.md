@@ -71,8 +71,6 @@ heroku config:set SECRET_KEY_BASE=$(mix phx.gen.secret)
 heroku config:set PHX_HOST=<your heroku domain>
 ```
 
-If `mix phx.gen.secret` fails to run, you may need to compile the app first.
-
 4. (Optional) Enable Github Actions for Continuous Deployment
 
 This repository has already defined a very simple Github action workflow that
