@@ -31,9 +31,9 @@ this [Vim tool](https://github.com/brooth/far.vim) to do this.
 If you don't use Vim or prefer not to to use that plugin, you can either use an
 editor of your choice or you can use the `find` command with `sed`:
 
-`find . -type f -name '*' -exec sed -i '' s/RenameMe/YourElixirModuleName/g {} +`
+`$ find . -type f -name '*' -exec sed -i '' s/RenameMe/YourElixirModuleName/g {} +`
 
-`find . -type f -name '*' -exec sed -i '' s/rename_me/your_elixir_module_name/g {} +`
+`$ find . -type f -name '*' -exec sed -i '' s/rename_me/your_elixir_module_name/g {} +`
 
 2. Next, rename all files. I use a tool called `rename` with `find` to do this:
 
