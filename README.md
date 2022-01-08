@@ -13,37 +13,13 @@ This boilerplate app uses:
 
 # 🛠  Setup & Customzie
 
-To quickly make this boilerplate yours, I've provided easy-to-find placeholders that make it a breeze to rename this app.
+To quickly make this boilerplate yours, I've provided a setup script that makes
+it a breeze to rename this app to your desired named.
 
-You will need to globally replace the `RenameMe` / `rename_me` placeholder in the app with your desired app name
+Just run `./setup.sh` and follow the prompts!
 
-1. Replace all instances of `RenameMe` in the app with your app name. I use
-this [Vim tool](https://github.com/brooth/far.vim) to do this.
-
-`:Far RenameMe YourElixirModuleName **/*`
-
-`:Fardo`
-
-`:Far rename_me your_elixir_module_name **/*`
-
-`:Fardo`
-
-If you don't use Vim or prefer not to to use that plugin, you can either use an
-editor of your choice or you can use the `find` command with `sed`:
-
-`$ find . -type f -name '*' -exec sed -i '' s/RenameMe/YourElixirModuleName/g {} +`
-
-`$ find . -type f -name '*' -exec sed -i '' s/rename_me/your_elixir_module_name/g {} +`
-
-2. Next, rename all files. I use a tool called `rename` with `find` to do this:
-
-`$ brew install rename`
-
-`$ find . -exec rename 's|rename_me|your_elixir_module_name|' {} +`
-
-3. Run the app!
-
-` mix deps.get && mix phx.server`
+If you'd prefer to do the renames manually, feel free to follow along
+[here](#manual-app-rename)
 
 # 🐿  Deployment
 
@@ -94,3 +70,36 @@ To start your Phoenix server:
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+# Manual App Rename
+
+You will need to globally replace the `RenameMe` / `rename_me` placeholder in the app with your desired app name
+
+1. Replace all instances of `RenameMe` in the app with your app name. I use
+this [Vim tool](https://github.com/brooth/far.vim) to do this.
+
+`:Far RenameMe YourElixirModuleName **/*`
+
+`:Fardo`
+
+`:Far rename_me your_elixir_module_name **/*`
+
+`:Fardo`
+
+If you don't use Vim or prefer not to to use that plugin, you can either use an
+editor of your choice or you can use the `find` command with `sed`:
+
+`find . -type f -name '*' -exec sed -i '' s/RenameMe/YourElixirModuleName/g {} +`
+
+`find . -type f -name '*' -exec sed -i '' s/rename_me/your_elixir_module_name/g {} +`
+
+2. Next, rename all files. I use a tool called `rename` with `find` to do this:
+
+`$ brew install rename`
+
+`$ find . -execdir rename -f 's/rename_me/your_elixir_module_name/' '{}' \+ &> /dev/null`
+
+3. Run the app!
+
+` mix deps.get && mix phx.server`
+
