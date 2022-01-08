@@ -1,6 +1,6 @@
 # Phoenix Template App 
 
-### ◎ This is a boilerplate template for Phoenix apps that can be deployed to Heroku
+### ♨️  This is a boilerplate template for Phoenix apps that can be deployed to Heroku
 
 This boilerplate app uses:
 
@@ -74,6 +74,11 @@ heroku config:set PHX_HOST=<your heroku domain>
 ```
 
 If `mix phx.gen.secret` fails to run, you may need to compile the app first.
+
+# 🔎 Other considerations
+
+If you hate the long spin up time that Heroku has for its dyno's check out this
+cool tool to keep your Heroku app alive called [Kaffeine](https://kaffeine.herokuapp.com/). It will allow your dyno's to sleep just enough to not bump into your monthly dyno time allowance for the Heroku free tier.
 
 # Local Development
 
