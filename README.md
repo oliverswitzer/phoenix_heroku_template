@@ -1,4 +1,4 @@
-# Phoenix Template App 
+# Phoenix Heroku Template
 
 ### ♨️  This is a boilerplate template that can be used to deploy a LiveView Phoenix app to Heroku within seconds.
 
