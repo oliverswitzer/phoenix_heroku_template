@@ -9,15 +9,15 @@ This boilerplate app uses:
 * erlang 24.1
 * LiveView
 * esbuild
-* Ecto / Postgres
+* Ecto / Postgres 
 
-### 🛠  Setup & Customzie
+# 🛠  Setup & Customzie
 
-1. Clone this repo, or click "Use Template" in Github to add to your github repositories
+To quickly make this boilerplate yours, I've provided easy-to-find placeholders that make it a breeze to rename this app to your desired app.
 
-2. Globally replace an easy-to-find placeholder in the app with your desired app name
+You will need to globally replace the `RenameMe` / `rename_me` placeholder in the app with your desired app name
 
-Replace all instances of `RenameMe` in the app with your app name. I use
+1. Replace all instances of `RenameMe` in the app with your app name. I use
 this [Vim tool](https://github.com/brooth/far.vim) to do this.
 
 `:Far RenameMe YourElixirModuleName **/*`
@@ -31,11 +31,11 @@ this [Vim tool](https://github.com/brooth/far.vim) to do this.
 If you don't use Vim or prefer not to to use that plugin, you can either use an
 editor of your choice or you can use the `find` command with `sed`:
 
-`find . -type f -name '**/*' -exec sed -i '' s/RenameMe/YourElixirModuleName/g {} +`
+`find . -type f -name '*' -exec sed -i '' s/RenameMe/YourElixirModuleName/g {} +`
 
-`find . -type f -name '**/*' -exec sed -i '' s/rename_me/your_elixir_module_name/g {} +`
+`find . -type f -name '*' -exec sed -i '' s/rename_me/your_elixir_module_name/g {} +`
 
-To rename all files, I use a tool called `rename` and `find`
+2. Next, rename all files. I use a tool called `rename` with `find` to do this:
 
 `$ brew install rename`
 
@@ -44,8 +44,6 @@ To rename all files, I use a tool called `rename` and `find`
 3. Run the app!
 
 ` mix deps.get && mix phx.server`
-
-If you'd prefer not to use a database, it is relatively easy to disable Ecto; just comment out `RenameMe.Repo,` in `lib/rename_me/application.ex` so it doesn't yell at you when starting up the app.
 
 # 🐿  Deployment
 
@@ -75,9 +73,18 @@ heroku config:set PHX_HOST=<your heroku domain>
 
 If `mix phx.gen.secret` fails to run, you may need to compile the app first.
 
+4. (Optional) Enable Github Actions for Continuous Deployment
+
+This repository has already defined a very simple Github action workflow that
+deploys commits to main to Heroku in `.github/workflows/main.yml`
+
+To enable this, simply edit `.github/workflows/main.yml`, add your email address, and change `replace_me` to your apps name. Finally, set `HEROKU_API_KEY` in your Github repository secrets.
+
 # 🔎 Other considerations
 
-If you hate the long spin up time that Heroku has for its dyno's check out this
+If you'd prefer not to use a database, it is relatively easy to disable Ecto; just comment out `RenameMe.Repo,` in `lib/rename_me/application.ex` so it doesn't yell at you when starting up the app.
+
+If you hate the long spin up time that Heroku has for its dynos check out this
 cool tool to keep your Heroku app alive called [Kaffeine](https://kaffeine.herokuapp.com/). It will allow your dyno's to sleep just enough to not bump into your monthly dyno time allowance for the Heroku free tier.
 
 # Local Development
