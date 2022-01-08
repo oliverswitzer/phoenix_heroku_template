@@ -47,7 +47,7 @@ editor of your choice or you can use the `find` command with `sed`:
 
 # 🐿  Deployment
 
-Necessary changes have been made to `config/runtime.exs` to allow deployments to Heroku.
+Minor changes have been made to `config/runtime.exs` to allow deployments to Heroku.
 All you need to do is install the necessary buildpacks and set appropriate environment variables.
 
 1. Create heroku app
