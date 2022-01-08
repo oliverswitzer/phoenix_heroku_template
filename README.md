@@ -50,12 +50,13 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 # Manual Rename and Deploy
 
+So you decided to take the long route eh? Well, here's what you'll need...
+
 ### Rename
 
-You will need to globally replace the `RenameMe` / `rename_me` placeholder in the app with your desired app name
+Globally replace the `RenameMe` / `rename_me` placeholder in the app with your desired app name
 
-1. Replace all instances of `RenameMe` in the app with your app name. I use
-this [Vim tool](https://github.com/brooth/far.vim) to do this.
+1. I use this the Far.vim [vim tool](https://github.com/brooth/far.vim) to do this.
 
 `:Far RenameMe YourElixirModuleName **/*`
 
@@ -84,7 +85,6 @@ editor of your choice or you can use the `find` command with `sed`:
 
 ### 🐿 Manual Deployment
 
-If you didn't 
 Minor changes have been made to `config/runtime.exs` to allow deployments to Heroku.
 All you need to do is install the necessary buildpacks and set appropriate environment variables.
 
@@ -100,12 +100,16 @@ By default, Phoenix uses esbuild and manages all assets for you. However, if you
 
 `heroku buildpacks:add https://github.com/gjaldon/heroku-buildpack-phoenix-static.git`
 
-3. Set these env vars:
+3. Add a database
+
+`$ heroku addons:create heroku-postgresql:hobby-dev`
+
+4. Set these env vars:
 
 ```
-heroku config:set DATABASE_URL=<database url generated from heroku>
 heroku config:set POOL_SIZE=10
 heroku config:set SECRET_KEY_BASE=$(mix phx.gen.secret)
 heroku config:set PHX_HOST=<your heroku domain>
 ```
 
+5. `git push heroku main` to deploy!
