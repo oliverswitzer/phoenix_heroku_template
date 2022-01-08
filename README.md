@@ -16,7 +16,7 @@ This boilerplate app uses:
 To quickly make this boilerplate yours, I've provided a setup script that makes
 it a breeze to rename this app to your desired named.
 
-Just clone the repo, run `./setup.sh` and follow the prompts!
+Just clone the repo, run `./setup.sh` and follow the prompts for renaming and automatically deploying to Heroku!
 
 If you'd prefer to do the renames manually, feel free to follow along
 [here](#manual-app-rename)
