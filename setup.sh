@@ -49,8 +49,9 @@ What module name would you like to give this app?
 EOF
 
 read module_name
+export module_name
 
-snake_name=$(echo $module_name | sed 's/[[:upper:]]/_&/g;s/^_//' | tr '[:upper:]' '[:lower:]')
+export snake_name=$(echo $module_name | sed 's/[[:upper:]]/_&/g;s/^_//' | tr '[:upper:]' '[:lower:]')
 
 echo "Renaming all instances of ReplaceMe with $module_name and replace_me with
 $snake_name in project..."
