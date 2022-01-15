@@ -72,17 +72,15 @@ echo "✅ Done! your app is renamed to $snake_name / $module_name."
 echo 
                                                                              
 read -p "Do you want to setup Heroku? Y/n " -n 1 -r
-
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then 
   echo "First compiling the app to be able run mix phx.gen.secret..."
   mix deps.get && mix compile 
 
-  kebab_name=$(echo $snake_name | awk '{ gsub("_", "-") ; system( "echo "  $0) }')
 
   echo "Creating Heroku app with Postgresql Hobby Dev database..."
-  heroku create $kebab_name
+  heroku create
   heroku addons:create heroku-postgresql:hobby-dev
   heroku buildpacks:add hashnuke/elixir
   heroku config:set POOL_SIZE=10 SECRET_KEY_BASE=$(mix phx.gen.secret) PHX_HOST=$(heroku domains | awk 'FNR == 2 {print}')
@@ -105,6 +103,27 @@ else
   echo "Skipping: deploy to Heroku"
 fi
 
+read -p "Do you want to rename the heroku app? Y/n" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  export renaming_heroku_instance=true
+  while $renaming_heroku_instance; do
+    echo "What would you like to rename it to? (kebab-case only): "
+    read heroku_name
+    heroku rename $heroku_name
+
+    if [ $? -eq 0 ]; then
+      renaming_heroku_instance=false
+    else
+      echo "Whoops, try again..."
+      echo
+    fi
+  done
+else
+  echo "Skipping: compile & run the app"
+fi
+
 echo
 echo
 read -p "Do you want to run the app locally? (ensure that you have postgres running first) Y/n " -n 1 -r
@@ -116,4 +135,3 @@ then
 else
   echo "Skipping: compile & run the app"
 fi
-
