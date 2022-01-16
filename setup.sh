@@ -115,6 +115,7 @@ then
 
     if [ $? -eq 0 ]; then
       renaming_heroku_instance=false
+      heroku config:set PHX_HOST=$(heroku domains | awk 'FNR == 2 {print}')
     else
       echo "Whoops, try again..."
       echo
